@@ -39,4 +39,17 @@
     color: #000;
     background-color: #fff;
 }
-.banner_button
+.banner_button:hover {
+    color: #000;
+    background-color: #c6c5c6;
+    transition: all0.2s;
+}
+.banner_fadeBottom{
+    height: 40vh;
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgb(37,37,37,0.91),
+        #111
+    );
+}

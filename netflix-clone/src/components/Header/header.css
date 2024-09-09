@@ -24,7 +24,12 @@
 .header_left ul{
     width: 140%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     list-style: none;
+}
+.netflix_img{
+    height: 60px;
+    width: auto;
+    
 }

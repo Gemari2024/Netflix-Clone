@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import instance from '../../utils/axios'
+import axios from '../../utils/axios'
 import requests from '../../utils/requests'
-import axios from "axios";
+import './banner.css'
+
 function Banner() {
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState([]);
+  console.log(axios)
+  console.log(requests)
   useEffect(() => {
     (async () => {
       try {
@@ -13,17 +16,21 @@ function Banner() {
             Math.floor(Math.random() * request.data.results.length)
           ]);
       } catch (error) {
-        // console.log("error", error);
+        console.log("error", error);
       }
     })();
   }, []);
+  function truncate(str, n){
+    return str?.length > n ? str.substr(0,n-1) + '...':str;
+  }
+  console.log(movie)
   return (
     <div
       className="banner"
       style={{
         backgroundSize: "cover",
         backgroundImage:
-          "url('https://image.tmdb.org/t/p/original${movie?.backdrop_path}')",
+          `url('https://image.tmdb.org/t/p/original${movie?.backdrop_path}')`,
         backgroundPosition: "center",
         backgroundRepeat: "non-repreat",
       }}
@@ -37,7 +44,7 @@ function Banner() {
           <button className="banner_button">My List</button>
         </div>
         <h1 className="banner_description">
-          {/* {truncation(movie?.overview, 150)} */}
+          {truncate(movie?.overview, 150)}
         </h1>
       </div>
       <div className="banner_fadeBottom" />
