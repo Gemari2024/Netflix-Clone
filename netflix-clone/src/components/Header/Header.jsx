@@ -1,10 +1,11 @@
 import React from 'react'
 import './header.css'
-import netflixLogo from '../../assets/images/netflixLogo.png'
+import netflixLogo from '../../assets/10001.png'
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
+
 
 function Header() {
   return (

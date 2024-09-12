@@ -5,13 +5,13 @@ import './banner.css'
 
 function Banner() {
   const [movie, setMovie] = useState([]);
-  console.log(axios)
-  console.log(requests)
+  // console.log(axios)
+  // console.log(requests)
   useEffect(() => {
     (async () => {
       try {
         const request = await axios.get(requests.fetchNetflixOriginals);
-        console.log(request)
+        // console.log(request)
         setMovie(request.data.results[
             Math.floor(Math.random() * request.data.results.length)
           ]);
@@ -23,7 +23,7 @@ function Banner() {
   function truncate(str, n){
     return str?.length > n ? str.substr(0,n-1) + '...':str;
   }
-  console.log(movie)
+  // console.log(movie)
   return (
     <div
       className="banner"
