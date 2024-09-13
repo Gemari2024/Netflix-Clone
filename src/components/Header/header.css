@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(20,20,20);
-    /* background-color: transparent; */
+    background-color: transparent;
     height: 10vh;
     color: white;
     transition: all 0.5s;
@@ -27,6 +27,14 @@
     justify-content: space-between; 
     align-items: center;
     list-style: none;
+    cursor: pointer;
+}
+.header_right ul{
+    width: 150%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    cursor: pointer;
 }
 .netflix_img{
     height: 60px;
