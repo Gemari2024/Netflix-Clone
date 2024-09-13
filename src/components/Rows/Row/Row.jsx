@@ -5,7 +5,7 @@ import movieTrailer from "movie-trailer";
 // import YouTube from "@mui/icons-material/YouTube";
 import YouTube from "react-youtube";
 
-function Row({ title, fetchUrl, isLargeRow }) {
+function Row({ title, fetchUrl, isLargeRow, activeTrailer, setActiveTrailer }) {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
   const base_url = "https://image.tmdb.org/t/p/original";
@@ -25,6 +25,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
   const handleClick = (movies) => {
     if (trailerUrl) {
       setTrailerUrl("");
+      setActiveTrailer("");
     } else {
       movieTrailer(movies?.title || movies?.name || movies?.original_name).then(
         (url) => {
@@ -33,6 +34,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
           console.log(urlParams);
           console.log(urlParams.get("v"));
           setTrailerUrl(urlParams.get("v"));
+          setActiveTrailer(title)
         }
       );
     }
@@ -65,7 +67,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
           })}
         </div>
         <dive style={{ padding: "40px" }}>
-          {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+          {trailerUrl && activeTrailer === title && <YouTube videoId={trailerUrl} opts={opts} />}
         </dive>
       </div>
     </>
